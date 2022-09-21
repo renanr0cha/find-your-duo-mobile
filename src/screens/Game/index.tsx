@@ -7,7 +7,7 @@ import logoImg from '../../assets/logo-nlw-esports.png'
 
 import { styles } from './styles';
 import { GameParams } from '../../@types/navigation';
-import { FlatList, Image, TouchableOpacity, View } from 'react-native';
+import { FlatList, Image, TouchableOpacity, View, Text } from 'react-native';
 import { THEME } from '../../theme';
 import { Heading } from '../../components/Heading';
 import { DuoCard } from '../../components/DuoCard';
@@ -79,6 +79,11 @@ export function Game() {
           horizontal
           style={styles.containerList}
           contentContainerStyle={styles.contentList}
+          ListEmptyComponent={() => (
+            <Text style={styles.emptyListText}>
+              Ainda não há anúncios publicados para este game.
+            </Text>
+          )}
         />
       </SafeAreaView>
     </Background>
