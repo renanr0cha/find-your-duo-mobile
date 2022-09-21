@@ -4,7 +4,7 @@ export const styles = StyleSheet.create({
   container: {
     flex: 1,
     alignItems: 'center',
-    marginBottom: 30
+    marginBottom: 30,
   },
   header: {
     width: '100%',
@@ -12,7 +12,7 @@ export const styles = StyleSheet.create({
     alignItems: 'center',
     paddingHorizontal: 32,
     marginTop: 28,
-    justifyContent: 'space-between'
+    justifyContent: 'space-between',
   },
   logo: {
     width: 72,
@@ -26,7 +26,7 @@ export const styles = StyleSheet.create({
     width: 311,
     height: 160,
     borderRadius: 8,
-    marginTop: 32
+    marginTop: 32,
   },
   containerList: {
     width: '100%',
