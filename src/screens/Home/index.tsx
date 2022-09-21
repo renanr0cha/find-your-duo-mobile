@@ -9,13 +9,20 @@ import { Heading } from '../../components/Heading';
 
 import { styles } from './styles';
 import { Background } from '../../components/Background';
+import { useNavigation } from '@react-navigation/native';
 
 export function Home() {
 
   const [games, setGames] = useState<GameCardProps[]>([])
 
+  const navigation = useNavigation()
+
+  function handleOpenGame({ id, title, bannerUrl}: GameCardProps) {
+    navigation.navigate("game", { id, title, bannerUrl})
+  }
+
   useEffect(() => {
-    fetch('http://192.168.1.105:3333/games')
+    fetch('http://192.168.100.12:3333/games')
       .then(response => response.json())
       .then(data => {
         setGames(data)
@@ -42,6 +49,7 @@ export function Home() {
           renderItem={({item}) => (
             <GameCard
               data={item}
+              onPress={() => handleOpenGame(item)}
             />
           )}
           showsHorizontalScrollIndicator={false}
