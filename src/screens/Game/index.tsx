@@ -10,7 +10,7 @@ import { GameParams } from '../../@types/navigation';
 import { FlatList, Image, TouchableOpacity, View, Text } from 'react-native';
 import { THEME } from '../../theme';
 import { Heading } from '../../components/Heading';
-import { DuoCard } from '../../components/DuoCard';
+import { DuoCard, DuoCardProps } from '../../components/DuoCard';
 import { useEffect, useState } from 'react';
 
 
@@ -18,7 +18,7 @@ import { useEffect, useState } from 'react';
 
 export function Game() {
 
-  const [duos, setDuos] = useState()
+  const [duos, setDuos] = useState<DuoCardProps[]>([])
   const route = useRoute()
   const game = route.params as GameParams
 
@@ -30,10 +30,9 @@ export function Game() {
 
 
   useEffect(() => {
-    fetch(`http://192.168.100.12:3333/games/${game.id}/ads`)
+    fetch(`http://192.168.1.105:3333/games/${game.id}/ads`)
       .then(response => response.json())
       .then(data => {
-        console.log(data)
         setDuos(data)
       })
   }, [])
@@ -77,11 +76,12 @@ export function Game() {
           )}
           showsHorizontalScrollIndicator={false}
           horizontal
-          style={styles.containerList}
-          contentContainerStyle={styles.contentList}
+          style={[styles.containerList,]}
+          contentContainerStyle={duos.length > 0 ? styles.contentList : styles.emptyListContent}
           ListEmptyComponent={() => (
-            <Text style={styles.emptyListText}>
-              Ainda não há anúncios publicados para este game.
+            <Text style={styles.emptyListText} numberOfLines={2}>
+              Ainda não há anúncios 
+              publicados para este game.
             </Text>
           )}
         />

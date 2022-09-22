@@ -35,11 +35,18 @@ export const styles = StyleSheet.create({
   contentList: {
     paddingLeft: 32,
     paddingRight: 64,
-    alignItems: "flex-start"
+    alignItems: "flex-start",
   },
   emptyListText: {
     color: THEME.COLORS.CAPTION_300,
-    fontSize: THEME.FONT_SIZE.SM,
+    fontSize: THEME.FONT_SIZE.MD,
     fontFamily: THEME.FONT_FAMILY.SEMI_BOLD,
+    width: 250,
+    textAlign: "center",
+  },
+  emptyListContent: {
+    flex: 1,
+    alignItems: "center",
+    justifyContent: "center",
   }
 });
