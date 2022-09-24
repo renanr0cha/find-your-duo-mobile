@@ -12,6 +12,7 @@ import { THEME } from '../../theme';
 import { Heading } from '../../components/Heading';
 import { DuoCard } from '../../components/DuoCard';
 import { useEffect, useState } from 'react';
+import { DuoMatch } from '../../components/DuoMatch';
 
 
 
@@ -84,6 +85,11 @@ export function Game() {
               Ainda não há anúncios publicados para este game.
             </Text>
           )}
+        />
+
+        <DuoMatch
+          visible
+          discord="Renan#1234"
         />
       </SafeAreaView>
     </Background>
